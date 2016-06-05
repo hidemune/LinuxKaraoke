@@ -17,14 +17,14 @@ do
     sleep 1
     if [ -f /tmp/que/stop ] ; then
       #trap 'kill $PID' EXIT
-      killall parole
+      killall vlc
       exit 0
     fi
     lslst=(`ls /tmp/que/que* 2>/dev/null`)
     if [ ${#lslst[*]} -gt 0 ] ; then
       mode=1
       killall random.sh
-      killall parole
+      killall vlc
       qfiles=(`ls /tmp/que/que* -1 2>/dev/null`)
       killall parole
       ./vlc.sh "`cat ${qfiles[0]}`"
