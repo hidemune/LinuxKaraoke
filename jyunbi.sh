@@ -1,5 +1,5 @@
 #!/bin/bash
-/home/user/tool/karaoke/JspInstall.sh
+./JspInstall.sh
 mkdir /tmp/que
 cp rireki /tmp/que/rireki
 echo 70 > /tmp/que/volume

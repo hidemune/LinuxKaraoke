@@ -1,5 +1,5 @@
 #!/bin/bash
-files='/home/user/tool/karaoke/all.csv'
+files='./all.csv'
 
 IFS='
 ' images=(`cat $files`)
@@ -21,6 +21,6 @@ do
   echo $nextNum
    IFS='	' fileNm=(${images[$nextNum]})
   echo RandomFileName : "${fileNm[0]}"
-  /home/user/tool/karaoke/vlc.sh "${fileNm[0]}"
+  ./vlc.sh "${fileNm[0]}"
   preNum=$nextNum
 done

@@ -8,7 +8,7 @@ then
 fi
 
 files=$1
-rm /home/user/tool/karaoke/all.csv
+rm ./all.csv
 IFS='
 '
 images=(`find $files -type f | sort`)
@@ -17,6 +17,6 @@ num_images=${#images[*]}
 for (( i=0; i<=$num_images; i++ ))
 do
   if [ -n "${images[$i]}" ]; then
-    java -jar /home/user/tool/karaoke/jtag.jar "${images[$i]}" >> /home/user/tool/karaoke/all.csv
+    java -jar ./jtag.jar "${images[$i]}" >> ./all.csv
   fi
 done

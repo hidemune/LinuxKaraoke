@@ -3,12 +3,12 @@
 mkdir /tmp/que
 rm /tmp/que/stop
 #trap 'kill $(jobs -p)' EXIT
-gksudo /home/user/tool/karaoke/jyunbi.sh
+gksudo ./jyunbi.sh
 
 while :
 do
   mode=0
-  /home/user/tool/karaoke/random.sh &
+  ./random.sh &
 
 #  for k in {0..32767}
   while :
@@ -27,7 +27,7 @@ do
       killall parole
       qfiles=(`ls /tmp/que/que* -1 2>/dev/null`)
       killall parole
-      /home/user/tool/karaoke/vlc.sh "`cat ${qfiles[0]}`"
+      ./vlc.sh "`cat ${qfiles[0]}`"
       echo Kettei : 「"`cat ${qfiles[0]}`"」 
       rm -f ${qfiles[0]}
     else
