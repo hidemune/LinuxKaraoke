@@ -14,6 +14,8 @@
   </head>
   <body>
 
+<div id="header"><!-- ここはヘッダです -->
+
     <form method="GET" action="input.jsp">
 <a href="input.jsp" target="_top">
 <%
@@ -122,7 +124,7 @@
 %>
 
 
-<div id="header"><!-- ここはヘッダです -->
+
 <%=volume%>
 </div><!-- id="header" ここまでヘッダです -->
 
