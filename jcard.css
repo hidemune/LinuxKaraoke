@@ -69,7 +69,8 @@
 		font-size:8px; font-weight:bold; text-align:center;
 		background-color:#daeff5;	/*ページ全体の背景色*/
 		color:#FFFFFF;
-		background-image:url(image/HP_Back.png)
+		/* background-image:url(image/HP_Back.png) */
+		overflow: scroll;
 	}
 	#lt{
 		position: absolute;
