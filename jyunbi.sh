@@ -2,6 +2,7 @@
 ./JspInstall.sh
 mkdir /tmp/que
 cp rireki /tmp/que/rireki
+cp all.csv /tmp/que/all.csv
 echo 70 > /tmp/que/volume
 chmod 777 -R /tmp/que
 chmod 777 /tmp/que/rireki

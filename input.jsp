@@ -199,7 +199,7 @@ function getText(unit) {
 
 
  <%
-objFr=new FileReader("/home/user/tool/karaoke/all.csv");
+objFr=new FileReader("/tmp/que/all.csv");
 objBr=new BufferedReader(objFr);
 line = "";
 out.println("<table border='1' >");
