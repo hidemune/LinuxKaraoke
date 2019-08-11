@@ -19,25 +19,29 @@
     <form method="GET" action="input.jsp">
 <a href="input.jsp" target="_top">
 <%
-  File dir = new File("/tmp/que");
+  File dir = new File(application.getRealPath("que*"));
   File[] files = dir.listFiles();
   if (files != null) {
     Arrays.sort(files);
 	  int idx = 1;
 	    for (int i = 0; i < files.length; i++) {
 		File file = files[i];
-		if (file.toString().startsWith("/tmp/que/que")) {
-		  FileReader objFr=new FileReader(file);
-		  BufferedReader objBr=new BufferedReader(objFr);
-		  String line = "";
-		  while((line = objBr.readLine()) != null){
-		    out.println((idx) + ":" + line.substring(line.lastIndexOf("/")+1,line.length()) + "<br>");
-		    idx++;
-		  }
-		  objBr.close();
+		if (file.toString().startsWith(application.getRealPath("."))) {
+      if (file.exists()) {
+		    FileReader objFr=new FileReader(file);
+		    BufferedReader objBr=new BufferedReader(objFr);
+		    String line = "";
+		    while((line = objBr.readLine()) != null){
+		      out.println((idx) + ":" + line.substring(line.lastIndexOf("/")+1,line.length()) + "<br>");
+		      idx++;
+		    }
+		    objBr.close();
+      }
 		}
 	    }
-	}
+	} else {
+    out.println("Empty");
+  }
 %>
 </a>
 <%
@@ -199,9 +203,6 @@ function getText(unit) {
 }
 </script>
 
-
-
-
  <%
 objFr=new FileReader(application.getRealPath("all.csv"));
 objBr=new BufferedReader(objFr);
@@ -242,58 +243,6 @@ while((line = objBr.readLine()) != null){
 }
 out.println("</table>");
 objBr.close();
- %>
-
- <%
-  String file = application.getRealPath("/"); 
-
-  File f = new File(file);
-  String [] fileNames = f.list();
-  File [] fileObjects= f.listFiles();
-out.println(fileObjects);
-/*
-  objBr=new BufferedReader(objFr);
-  line = "";
-  out.println("<table border='1' >");
-          out.println("<tr>");
-          //out.println("<td>" + cols[0] + "</td>");
-          out.println("<td>アーティスト</td>");
-          out.println("<td>アルバム</td>");
-          out.println("<td>タイトル</td>");
-          out.println("<td>予約</td>");
-          out.println("</tr>");
-  while((line = objBr.readLine()) != null){
-      StringTokenizer objTkn=new StringTokenizer(line,"\n");
-      while(objTkn.hasMoreTokens()){
-        String csvLine = objTkn.nextToken();
-        boolean flg = true;
-        if (csvLine.indexOf(strTxt0) < 0) {
-          flg = false;
-        }
-        if (csvLine.indexOf(strTxt1) < 0) {
-          flg = false;
-        }
-        if (csvLine.indexOf(strTxt2) < 0) {
-          flg = false;
-        }
-        if (flg) {
-          String[] cols = csvLine.split("\t", -1);
-          out.println("<tr>");
-          //out.println("<td>" + cols[0] + "</td>");
-          out.println("<td>" + cols[1] + "</td>");
-          out.println("<td>" + cols[2] + "</td>");
-          out.println("<td>" + cols[3] + "</td>");
-          out.println("<td><form action='kettei.jsp' method='post'><input type='text' name='filename' value='" + cols[0].replace("\'","&#39") + "' hidden=true><input title='" + cols[0].replace("\'","&#39") + "' type='submit' value='予約'></td></form>");
-          out.println("</tr>");
-        }
-      }
-}
-
-out.println("</table>");
-objBr.close();
-*/
-objFr.close();
-
  %>
 
   </body>

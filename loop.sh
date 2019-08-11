@@ -1,7 +1,10 @@
 #!/bin/bash
 
+unclutter -idle 0.5 -root &
+
 mkdir /var/lib/tomcat8/webapps/ROOT
 rm /var/lib/tomcat8/webapps/ROOT/stop
+rm -f /var/lib/tomcat8/webapps/ROOT/que*
 
 sudo ./jyunbi.sh
 mode=0 #SYOKITI_or_QUE:0
@@ -12,6 +15,9 @@ do
   if [ $mode -eq 0 ] ; then
     mode=1 #RANDOM:1
     ./random.sh &
+    while [[ $(pgrep omxplayer) ]] ; do 
+        sleep 1
+    done
   fi
 
 #  for k in {0..32767}
@@ -40,10 +46,9 @@ do
       ./omx_player.sh "`cat ${qfiles[0]}`"
       echo Kettei : 「"`cat ${qfiles[0]}`"」 
       rm -f ${qfiles[0]}
-    #else
-      #if [ $mode -eq 1 ] ; then
-        #break
-      #fi
+    else
+      mode=1
+      break
     fi
   done
 done
