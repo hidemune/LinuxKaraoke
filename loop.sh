@@ -12,15 +12,14 @@ mode=0 #SYOKITI_or_QUE:0
 while true :
 do
   # to RANDOM
-  if [ $mode -eq 0 ] ; then
+  if [ $mode -le 1 ] ; then
     mode=1 #RANDOM:1
-    ./random.sh &
+    ./random.sh
     while [[ $(pgrep omxplayer) ]] ; do 
         sleep 1
     done
   fi
 
-#  for k in {0..32767}
   while true :
   do
     #echo test
@@ -37,8 +36,7 @@ do
     lslst=(`ls /var/lib/tomcat8/webapps/ROOT/que* 2>/dev/null`)
     if [ ${#lslst[*]} -gt 0 ] ; then
       # QUE
-      mode=0
-      #killall random.sh
+      mode=2
       while [[ $(pgrep omxplayer) ]] ; do 
           sleep 1
       done
