@@ -1,7 +1,7 @@
 #!/bin/bash
 cp "$1" /var/lib/tomcat8/webapps/ROOT/play
 volume=`cat /var/lib/tomcat8/webapps/ROOT/volume`
-while killall omxplayer; do 
+while [ ps aux | grep omxplayer ] ; do 
     sleep 1
 done
 echo Play : 「"$1"」
@@ -39,4 +39,4 @@ do
     break
   fi
 done
-kill -9 $pid
+#kill -9 $pid
