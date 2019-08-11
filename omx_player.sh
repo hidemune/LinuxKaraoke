@@ -1,7 +1,7 @@
 #!/bin/bash
 cp "$1" /var/lib/tomcat8/webapps/ROOT/play
 volume=`cat /var/lib/tomcat8/webapps/ROOT/volume`
-while [ ps aux | grep omxplayer ] ; do 
+while [[ $(pgrep omxplayer) ]] ; do  
     sleep 1
 done
 echo Play : 「"$1"」
@@ -10,7 +10,10 @@ video_length=`ffmpeg -i "$1" 2>&1 | grep "Duration"| cut -d ' ' -f 4 | sed s/,//
 #parole -F "$1" &
 #parole -F /var/lib/tomcat8/webapps/ROOT/play &
 #omxplayer file:///var/lib/tomcat8/webapps/ROOT/play --fullscreen --one-instance -I rc –rc-host localhost:80 &
-omxplayer file:///var/lib/tomcat8/webapps/ROOT/play &
+omxplayer file:///var/lib/tomcat8/webapps/ROOT/play # comment out &
+
+exit 0
+
 pid=$!
 echo $video_length
 IFS=' ms'

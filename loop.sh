@@ -6,7 +6,7 @@ rm /var/lib/tomcat8/webapps/ROOT/stop
 sudo ./jyunbi.sh
 mode=0 #SYOKITI_or_QUE:0
 
-while :
+while true :
 do
   # to RANDOM
   if [ $mode -eq 0 ] ; then
@@ -15,14 +15,14 @@ do
   fi
 
 #  for k in {0..32767}
-  while :
+  while true :
   do
     #echo test
     sleep 1
     # STOP !
     if [ -f /var/lib/tomcat8/webapps/ROOT/stop ] ; then
       #trap 'wait $PID' EXIT
-      while [ ps aux | grep omxplayer ] ; do 
+      while [[ $(pgrep omxplayer) ]] ; do 
           sleep 1
       done
       exit 0
@@ -33,12 +33,11 @@ do
       # QUE
       mode=0
       #killall random.sh
-      while [ ps aux | grep omxplayer ] ; do 
+      while [[ $(pgrep omxplayer) ]] ; do 
           sleep 1
       done
       qfiles=(`ls /var/lib/tomcat8/webapps/ROOT/que* -1 2>/dev/null`)
-      #killall parole
-      #./omxplayer.sh "`cat ${qfiles[0]}`"
+      ./omx_player.sh "`cat ${qfiles[0]}`"
       echo Kettei : 「"`cat ${qfiles[0]}`"」 
       rm -f ${qfiles[0]}
     #else

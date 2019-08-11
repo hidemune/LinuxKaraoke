@@ -21,9 +21,9 @@ preNum=-1
   echo $nextNum
   IFS='	' fileNm=(${images[$nextNum]})
   echo RandomFileName _ "${fileNm[0]}"
-  while [ ps aux | grep omxplayer ] ; do 
+  while [[ $(pgrep omxplayer) ]] ; do 
       sleep 1
   done
-  ./omxplayer.sh "${fileNm[0]}"
+  ./omx_player.sh "${fileNm[0]}"
   preNum=$nextNum
 #done
