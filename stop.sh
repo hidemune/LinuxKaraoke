@@ -1,7 +1,9 @@
 #!/bin/bash
-touch /tmp/que/stop
-killall vlc
+touch /var/lib/tomcat8/webapps/ROOT/stop
+while killall omxplayer; do 
+    sleep 1
+done
 killall random.sh
-killall vlc.sh
+killall omxplayer.sh
 killall loop.sh
-rm /tmp/que/que*
+rm /var/lib/tomcat8/webapps/ROOT/que*

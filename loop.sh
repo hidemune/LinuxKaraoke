@@ -1,9 +1,9 @@
 #!/bin/bash
 
-mkdir /tmp/que
-rm /tmp/que/stop
+mkdir /var/lib/tomcat8/webapps/ROOT
+rm /var/lib/tomcat8/webapps/ROOT/stop
 #trap 'kill $(jobs -p)' EXIT
-gksudo ./jyunbi.sh
+sudo ./jyunbi.sh
 
 while :
 do
@@ -15,19 +15,23 @@ do
   do
     #echo test
     sleep 1
-    if [ -f /tmp/que/stop ] ; then
+    if [ -f /var/lib/tomcat8/webapps/ROOT/stop ] ; then
       #trap 'kill $PID' EXIT
-      killall vlc
+      while killall omxplayer; do 
+          sleep 1
+      done
       exit 0
     fi
-    lslst=(`ls /tmp/que/que* 2>/dev/null`)
+    lslst=(`ls /var/lib/tomcat8/webapps/ROOT/que* 2>/dev/null`)
     if [ ${#lslst[*]} -gt 0 ] ; then
       mode=1
       killall random.sh
-      killall vlc
-      qfiles=(`ls /tmp/que/que* -1 2>/dev/null`)
+      while killall omxplayer; do 
+          sleep 1
+      done
+      qfiles=(`ls /var/lib/tomcat8/webapps/ROOT/que* -1 2>/dev/null`)
       killall parole
-      ./vlc.sh "`cat ${qfiles[0]}`"
+      ./omxplayer.sh "`cat ${qfiles[0]}`"
       echo Kettei : 「"`cat ${qfiles[0]}`"」 
       rm -f ${qfiles[0]}
     else

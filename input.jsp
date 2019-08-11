@@ -19,23 +19,25 @@
     <form method="GET" action="input.jsp">
 <a href="input.jsp" target="_top">
 <%
-  File dir = new File("/tmp/que/");
+  File dir = new File("/tmp/que");
   File[] files = dir.listFiles();
-  Arrays.sort(files);
-  int idx = 1;
-    for (int i = 0; i < files.length; i++) {
-        File file = files[i];
-        if (file.toString().startsWith("/tmp/que/que")) {
-          FileReader objFr=new FileReader(file);
-          BufferedReader objBr=new BufferedReader(objFr);
-          String line = "";
-          while((line = objBr.readLine()) != null){
-            out.println((idx) + ":" + line.substring(line.lastIndexOf("/")+1,line.length()) + "<br>");
-            idx++;
-          }
-          objBr.close();
-        }
-    }
+  if (files != null) {
+    Arrays.sort(files);
+	  int idx = 1;
+	    for (int i = 0; i < files.length; i++) {
+		File file = files[i];
+		if (file.toString().startsWith("/tmp/que/que")) {
+		  FileReader objFr=new FileReader(file);
+		  BufferedReader objBr=new BufferedReader(objFr);
+		  String line = "";
+		  while((line = objBr.readLine()) != null){
+		    out.println((idx) + ":" + line.substring(line.lastIndexOf("/")+1,line.length()) + "<br>");
+		    idx++;
+		  }
+		  objBr.close();
+		}
+	    }
+	}
 %>
 </a>
 <%
@@ -44,7 +46,7 @@
   String volume = request.getParameter("volume");
   if (volume != null) {
     //write
-    FileWriter objFw=new FileWriter("/tmp/que/volume");
+    FileWriter objFw=new FileWriter(application.getRealPath("volume"));
     BufferedWriter objBw=new BufferedWriter(objFw);
     objBw.write(volume);
     objBw.close();
@@ -71,7 +73,7 @@
   String add2 = strTxt2;
 
     String[] rrk = new String[20];
-    FileReader objFr=new FileReader("/tmp/que/rireki");
+    FileReader objFr=new FileReader(application.getRealPath("rireki"));
     BufferedReader objBr=new BufferedReader(objFr);
     String line = "";
     int i = 0;
@@ -90,7 +92,7 @@
     }
     objBr.close();
     //write
-    FileWriter objFw=new FileWriter("/tmp/que/rireki");
+    FileWriter objFw=new FileWriter(application.getRealPath("rireki"));
     BufferedWriter objBw=new BufferedWriter(objFw);
     if (add0.trim().equals("")) {
       //no
@@ -143,7 +145,7 @@
       <select name="select0" class="selectBox" id="selBox0" onChange="getSelect(0,this.value)">
       <option value=""></option>
 <%
- objFr=new FileReader("/tmp/que/rireki");
+ objFr=new FileReader(application.getRealPath("rireki"));
  objBr=new BufferedReader(objFr);
  line = "";
 while((line = objBr.readLine()) != null){
@@ -158,7 +160,7 @@ objBr.close();
       <select name="select1" class="selectBox" id="selBox1" onChange="getSelect(1,this.value)">
       <option value=""></option>
 <%
-objFr=new FileReader("/tmp/que/rireki");
+objFr=new FileReader(application.getRealPath("rireki"));
 objBr=new BufferedReader(objFr);
 line = "";
 while((line = objBr.readLine()) != null){
@@ -173,7 +175,7 @@ objBr.close();
       <select name="select2" class="selectBox" id="selBox2" onChange="getSelect(2,this.value)">
       <option value=""></option>
 <%
-objFr=new FileReader("/tmp/que/rireki");
+objFr=new FileReader(application.getRealPath("rireki"));
 objBr=new BufferedReader(objFr);
 line = "";
 while((line = objBr.readLine()) != null){
@@ -201,7 +203,7 @@ function getText(unit) {
 
 
  <%
-objFr=new FileReader("/tmp/que/all.csv");
+objFr=new FileReader(application.getRealPath("all.csv"));
 objBr=new BufferedReader(objFr);
 line = "";
 out.println("<table border='1' >");

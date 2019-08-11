@@ -17,7 +17,7 @@
 
 <%
     String vol = "";
-    FileReader objFr=new FileReader("/tmp/que/volume");
+    FileReader objFr=new FileReader(application.getRealPath("volume"));
     BufferedReader objBr=new BufferedReader(objFr);
     String line = "";
     while((line = objBr.readLine()) != null){

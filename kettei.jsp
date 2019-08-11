@@ -19,7 +19,7 @@
  <%
 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
 
-File file = new File("/tmp/que/que" + sdf.format(Calendar.getInstance().getTime()));
+File file = new File(application.getRealPath("que" + sdf.format(Calendar.getInstance().getTime())));
 file.setWritable(true);
 
 FileWriter objFr=new FileWriter(file);

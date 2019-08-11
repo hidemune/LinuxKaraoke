@@ -21,6 +21,6 @@ do
   echo $nextNum
    IFS='	' fileNm=(${images[$nextNum]})
   echo RandomFileName : "${fileNm[0]}"
-  ./vlc.sh "${fileNm[0]}"
+  ./omxplayer.sh "${fileNm[0]}"
   preNum=$nextNum
 done
