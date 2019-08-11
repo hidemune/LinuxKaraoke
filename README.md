@@ -1,5 +1,10 @@
 # LinuxKaraoke
 
+■起動方法
+
+sudo ./loop.sh
+
+
 そのうちこんな感じにする予定
 
 ■RasPiで、環境ビデオ流しっぱプロジェクト
