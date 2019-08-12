@@ -50,7 +50,7 @@
 <button type="button" name="stop" value="1">
 <br>
 <br>
-<font size="5" color="#333399">&nbsp;&nbsp;STOP&nbsp;&nbsp;</font>
+<font size="5" color="#333399">&nbsp;&nbsp;動画終了&nbsp;&nbsp;</font>
 </button>
 <%
   request.setCharacterEncoding("UTF-8");
@@ -69,7 +69,7 @@
 <button type="button" name="cancel" value="1">
 <br>
 <br>
-<font size="5" color="#333399">&nbsp;&nbsp;CANCEL&nbsp;&nbsp;</font>
+<font size="5" color="#333399">&nbsp;&nbsp;次の曲&nbsp;&nbsp;</font>
 </button>
 <%
   request.setCharacterEncoding("UTF-8");
