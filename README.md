@@ -5,7 +5,9 @@
 sudo ./loop.sh
 
 ■Webアプリ
+LinuxKaraoke/getIP.sh にて、確認可能。
 
+例）
 http://<IP_Adress>:8080
 
 ■セットアップ手順
