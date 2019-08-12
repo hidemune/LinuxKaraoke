@@ -19,26 +19,29 @@
     <form method="GET" action="input.jsp">
 <a href="input.jsp" target="_top">
 <%
-  File dir = new File(application.getRealPath("que*"));
+  int idx = 1;
+  File dir = new File(application.getRealPath("."));
   File[] files = dir.listFiles();
   if (files != null) {
     Arrays.sort(files);
     for (int i = 0; i < files.length; i++) {
-	    File file = files[i];
-	    if (file.toString().startsWith(application.getRealPath("."))) {
+      File file = files[i];
+      //out.println(file.toString());
+      //out.println("<br>");
+      if (file.toString().startsWith(application.getRealPath("./que"))) {
         if (file.exists()) {
-	        FileReader objFr=new FileReader(file);
-	        BufferedReader objBr=new BufferedReader(objFr);
-	        String line = "";
-	        while((line = objBr.readLine()) != null){
-	          out.println((idx) + ":" + line.substring(line.lastIndexOf("/")+1,line.length()) + "<br>");
-	          idx++;
-	        }
-	        objBr.close();
+          FileReader objFr=new FileReader(file);
+          BufferedReader objBr=new BufferedReader(objFr);
+          String line = "";
+          while((line = objBr.readLine()) != null){
+            out.println((idx) + ":" + line.substring(line.lastIndexOf("/")+1,line.length()) + "<br>");
+            idx++;
+          }
+          objBr.close();
         }
-	    }
+      }
     }
-	} else {
+  } else {
     out.println("Empty...");
   }
 %>
@@ -130,7 +133,7 @@
 
 
 
-<%=volume%>
+<!-- %=volume% -->
 </div><!-- id="header" ここまでヘッダです -->
 
 
@@ -193,12 +196,12 @@ objBr.close();
     </form>
 <script type="text/javascript">
 function getSelect(unit,text) {
-	document.getElementById("tField" + unit).value = text;		
+  document.getElementById("tField" + unit).value = text;    
 }
 
 function getText(unit) {
-	var s = document.getElementById("tField" + unit).value;
-	alert(s);
+  var s = document.getElementById("tField" + unit).value;
+  alert(s);
 }
 </script>
 
