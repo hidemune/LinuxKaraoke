@@ -10,6 +10,9 @@ rm -f /var/lib/tomcat8/webapps/ROOT/que*
 sudo ./jyunbi.sh
 mode=0 #SYOKITI_or_QUE:0
 
+volume=70
+amixer set Master 70%
+
 while true :
 do
   # to RANDOM
@@ -48,6 +51,12 @@ do
       kill -9 `pgrep omxplayer`
       break
     fi
-      sleep 1
+    # Volume set
+    if [ -f /var/lib/tomcat8/webapps/ROOT/volume ] ; then
+      vol=`cat /var/lib/tomcat8/webapps/ROOT/volume`
+      echo VOLUME : ${vol}
+      amixer set Master ${vol}%
+    fi
+    sleep 1
   done
 done

@@ -8,4 +8,4 @@ echo Play : 「"$1"」
 #parole -F "$1" &
 #parole -F /var/lib/tomcat8/webapps/ROOT/play &
 #omxplayer file:///var/lib/tomcat8/webapps/ROOT/play --fullscreen --one-instance -I rc –rc-host localhost:80 &
-omxplayer file:///var/lib/tomcat8/webapps/ROOT/play &
+omxplayer -o alsa file:///var/lib/tomcat8/webapps/ROOT/play &
