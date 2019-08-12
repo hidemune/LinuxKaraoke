@@ -57,6 +57,15 @@ do
       echo VOLUME : ${vol}
       amixer set Master ${vol}%
     fi
+    # mode=1 かつ、キューにある場合、キャンセルボタンと同じにする
+    if [ ${mode} -eq 1 ] ; then
+      lslst=(`ls /var/lib/tomcat8/webapps/ROOT/que* 2>/dev/null`)
+      if [ ${#lslst[*]} -gt 0 ] ; then
+        echo que-CANCEL !!
+        kill -9 `pgrep omxplayer`
+        break
+      fi
+    fi
     sleep 1
   done
 done
