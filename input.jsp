@@ -10,9 +10,9 @@
  <meta http-equiv="Expires" content="0">
  <meta http-equiv="content-style-type" content="text/css">
  <meta http-equiv="Content-Script-Type" content="text/javascript">
-    <title>カラオケ</title>
-  </head>
-  <body>
+    <title>動画再生</title>
+</head>
+<body>
 
 <div id="header"><!-- ここはヘッダです -->
 
@@ -23,24 +23,23 @@
   File[] files = dir.listFiles();
   if (files != null) {
     Arrays.sort(files);
-	  int idx = 1;
-	    for (int i = 0; i < files.length; i++) {
-		File file = files[i];
-		if (file.toString().startsWith(application.getRealPath("."))) {
-      if (file.exists()) {
-		    FileReader objFr=new FileReader(file);
-		    BufferedReader objBr=new BufferedReader(objFr);
-		    String line = "";
-		    while((line = objBr.readLine()) != null){
-		      out.println((idx) + ":" + line.substring(line.lastIndexOf("/")+1,line.length()) + "<br>");
-		      idx++;
-		    }
-		    objBr.close();
-      }
-		}
+    for (int i = 0; i < files.length; i++) {
+	    File file = files[i];
+	    if (file.toString().startsWith(application.getRealPath("."))) {
+        if (file.exists()) {
+	        FileReader objFr=new FileReader(file);
+	        BufferedReader objBr=new BufferedReader(objFr);
+	        String line = "";
+	        while((line = objBr.readLine()) != null){
+	          out.println((idx) + ":" + line.substring(line.lastIndexOf("/")+1,line.length()) + "<br>");
+	          idx++;
+	        }
+	        objBr.close();
+        }
 	    }
+    }
 	} else {
-    out.println("Empty");
+    out.println("Empty...");
   }
 %>
 </a>
