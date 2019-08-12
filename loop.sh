@@ -3,8 +3,8 @@
 unclutter -idle 0.5 -root -visible &
 
 mkdir /var/lib/tomcat8/webapps/ROOT
-rm /var/lib/tomcat8/webapps/ROOT/stop
-rm /var/lib/tomcat8/webapps/ROOT/cancel
+rm -f /var/lib/tomcat8/webapps/ROOT/stop
+rm -f /var/lib/tomcat8/webapps/ROOT/cancel
 rm -f /var/lib/tomcat8/webapps/ROOT/que*
 
 sudo ./jyunbi.sh

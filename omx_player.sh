@@ -1,5 +1,5 @@
 #!/bin/bash
-cp "$1" /var/lib/tomcat8/webapps/ROOT/play
+#cp "$1" /run
 volume=`cat /var/lib/tomcat8/webapps/ROOT/volume`
 
 echo Play : 「"$1"」
@@ -8,4 +8,4 @@ echo Play : 「"$1"」
 #parole -F "$1" &
 #parole -F /var/lib/tomcat8/webapps/ROOT/play &
 #omxplayer file:///var/lib/tomcat8/webapps/ROOT/play --fullscreen --one-instance -I rc –rc-host localhost:80 &
-omxplayer -o alsa file:///var/lib/tomcat8/webapps/ROOT/play &
+omxplayer -o alsa "$1" &
