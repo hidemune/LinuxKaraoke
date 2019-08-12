@@ -1,4 +1,7 @@
-# LinuxKaraoke
+# LinuxKaraoke(動画再生ソフト)
+
+■RaspberryPi 3B,4 対応版
+
 
 ■起動方法
 
