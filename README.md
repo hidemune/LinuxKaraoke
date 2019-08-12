@@ -34,8 +34,8 @@
 
 ## イメージ
 
-[img/image001.JPG]
-[img/image002.png]
+![image 1](img/image001.JPG)
+![image 2](img/image002.png)
 
 ### そのうちこんな感じにする予定
 
