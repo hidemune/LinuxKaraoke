@@ -10,3 +10,4 @@ echo 以下のアドレスに、LAN経由で繋いでください。
 echo
 echo http://${ip}:8080
 read a
+
