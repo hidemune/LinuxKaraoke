@@ -2,37 +2,37 @@
 
 unclutter -idle 0.5 -root -visible &
 
-mkdir /var/lib/tomcat8/webapps/ROOT
+mkdir -p /var/lib/tomcat8/webapps/ROOT/karaoke
 rm -f /var/lib/tomcat8/webapps/ROOT/stop
 rm -f /var/lib/tomcat8/webapps/ROOT/cancel
 rm -f /var/lib/tomcat8/webapps/ROOT/que*
 
 sudo ./jyunbi.sh
-mode=0 #SYOKITI_or_QUE:0
+mode=0 #SYOKICHI:0
 
 volume=70
 amixer set Master 70%
 
 while true :
 do
-  # to RANDOM
-  if [ $mode -le 1 ] ; then
-    mode=1 #RANDOM:1
-    ./random.sh
-  fi
-
-  # Yoyaku !
+  # QUE(Yoyaku) !
   lslst=(`ls /var/lib/tomcat8/webapps/ROOT/que* 2>/dev/null`)
   if [ ${#lslst[*]} -gt 0 ] ; then
     # QUE
-    mode=2
+    mode=2 #QUE:2
     qfiles=(`ls /var/lib/tomcat8/webapps/ROOT/que* -1 2>/dev/null`)
     ./omx_player.sh "`cat ${qfiles[0]}`"
     echo Kettei : 「"`cat ${qfiles[0]}`"」 
     rm -f ${qfiles[0]}
   else
-    mode=1
+    mode=1 #RANDOM:1
     #break
+  fi
+
+  # to RANDOM
+  if [ $mode -le 1 ] ; then
+    mode=1 #RANDOM:1
+    ./random.sh
   fi
 
   while [[ $(pgrep omxplayer) ]] ; do 
