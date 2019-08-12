@@ -8,6 +8,14 @@ sudo ./loop.sh
 
 http://<IP_Adress>:8080
 
+■セットアップ手順
+
+（１回め）
+sudo ./jyunbi.sh
+
+（２回め以降）
+sudo ./JspInstall.sh
+
 
 そのうちこんな感じにする予定
 

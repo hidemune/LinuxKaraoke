@@ -46,6 +46,43 @@
   }
 %>
 
+<a href="volume.jsp?stop=1">
+<button type="button" name="stop" value="1">
+<br>
+<br>
+<font size="5" color="#333399">&nbsp;&nbsp;STOP&nbsp;&nbsp;</font>
+</button>
+<%
+  request.setCharacterEncoding("UTF-8");
+
+  String stop = request.getParameter("stop");
+  //write
+  if (stop != null) {
+    FileWriter objFw=new FileWriter(application.getRealPath("stop"));
+    BufferedWriter objBw=new BufferedWriter(objFw);
+    objBw.write("1\n");
+    objBw.close();
+  }
+%>
+
+<a href="volume.jsp?cancel=1">
+<button type="button" name="cancel" value="1">
+<br>
+<br>
+<font size="5" color="#333399">&nbsp;&nbsp;CANCEL&nbsp;&nbsp;</font>
+</button>
+<%
+  request.setCharacterEncoding("UTF-8");
+
+  String cancel = request.getParameter("cancel");
+  //write
+  if (cancel != null) {
+    FileWriter objFw=new FileWriter(application.getRealPath("cancel"));
+    BufferedWriter objBw=new BufferedWriter(objFw);
+    objBw.write("1\n");
+    objBw.close();
+  }
+%>
 
 <br>
 </body>
