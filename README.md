@@ -4,6 +4,10 @@
 
 sudo ./loop.sh
 
+■Webアプリ
+
+http://<IP_Adress>:8080
+
 
 そのうちこんな感じにする予定
 

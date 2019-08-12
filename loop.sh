@@ -1,6 +1,6 @@
 #!/bin/bash
 
-unclutter -idle 0.5 -root &
+unclutter -idle 0.5 -root -visible &
 
 mkdir /var/lib/tomcat8/webapps/ROOT
 rm /var/lib/tomcat8/webapps/ROOT/stop
