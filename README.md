@@ -32,7 +32,10 @@
 - 例）
 - http://<IP_Adress>:8080
 
+## イメージ
 
+[img/image001.JPG]
+[img/image002.png]
 
 ### そのうちこんな感じにする予定
 
