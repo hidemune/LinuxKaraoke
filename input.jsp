@@ -4,7 +4,7 @@
 <html lang="ja">
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <link rel="stylesheet" type="text/css" href="jcard.css" />
+ <link rel="stylesheet" type="text/css" href="jcard.css?ver=201908132111" />
  <meta http-equiv="Pragma" content="no-cache">
  <meta http-equiv="Cache-Control" content="no-cache">
  <meta http-equiv="Expires" content="0">
@@ -238,7 +238,7 @@ while((line = objBr.readLine()) != null){
         out.println("<td>" + cols[1] + "</td>");
         out.println("<td>" + cols[2] + "</td>");
         out.println("<td>" + cols[3] + "</td>");
-        out.println("<td><form action='kettei.jsp' method='post'><input type='text' name='filename' value='" + cols[0].replace("\'","&#39") + "' hidden=true><input title='" + cols[0].replace("\'","&#39") + "' type='submit' value='予約'></td></form>");
+        out.println("<td><form action='kettei.jsp' method='post'><input type='text' name='filename' value='" + cols[0].replace("\'","&#39") + "' hidden=true><input id='yoyaku' title='" + cols[0].replace("\'","&#39") + "' type='submit' value='予約'></td></form>");
         out.println("</tr>");
       }
     }
