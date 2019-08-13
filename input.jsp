@@ -192,7 +192,7 @@ objBr.close();
       </select>
 <br>
 
-      <input type="submit" value="送信" />
+      <input type="submit" value="検索" />
     </form>
 <script type="text/javascript">
 function getSelect(unit,text) {
