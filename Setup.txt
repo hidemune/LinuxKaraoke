@@ -30,7 +30,7 @@ sudo apt-get upgrade
 sudo apt-get -y install git
 sudo apt-get -y install openjdk-8-jdk apache2 tomcat8 --fix-missing
 sudo apt-get -y install thunar smbclient omxplayer alsa-oss alsa-utils alsamixergui 
-sudo apt-get -y install unclutter wicd
+sudo apt-get -y install unclutter wicd handbrake
 sudo apt-get -y install xfce4 xfce4-goodies
 
 sudo update-alternatives --config x-session-manager
@@ -42,10 +42,16 @@ cd LinuxKaraoke
 sudo ./jyunbi.sh
 (ここで、tomcat7系のエラーは無視して構いません)
 
-./getIP_RasPi3.sh
+./getIP.sh
 これを実行して出た結果が、スマホ等から見たアドレスになります。（自宅LAN内のみ）
 
 
 # 実行
 sudo ./loop.sh
+
+
+# うまく動画が再生されない時
+
+omxplayer が、対応していない形式（.webm など）は、再生できません。
+うまく再生できない動画は、「handbrake」というソフトで、「.m4v」などの形式に変換する必要があります。
 
