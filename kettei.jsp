@@ -3,30 +3,50 @@
 
 <html>
   <head>
-    <meta http-equiv="refresh" content="3;URL=input.jsp">
+    <meta http-equiv="refresh" content="1;URL=input.jsp">
     <title>カラオケ</title>
   </head>
   <body>
 <%
+  //次の曲（Volume.jspより）
+  request.setCharacterEncoding("UTF-8");
+
+  String cancel = request.getParameter("cancel");
+  //write
+  if (cancel != null) {
+    FileWriter objFwC=new FileWriter(application.getRealPath("cancel"));
+    BufferedWriter objBwC=new BufferedWriter(objFwC);
+    objBwC.write("1\n");
+    objBwC.close();
+  }
+
   request.setCharacterEncoding("UTF-8");
 
   String strTxt = request.getParameter("filename");
+if (strTxt != null) {
   //strTxt = "'" + strTxt + "'";
   out.println("入力：" + strTxt + "：予約します");
-%>
 
+  String volume = request.getParameter("volume");
+  if (volume != null) {
+    //write
+    FileWriter objFw=new FileWriter(application.getRealPath("volume"));
+    BufferedWriter objBw=new BufferedWriter(objFw);
+    objBw.write(volume);
+    objBw.close();
+  }
 
- <%
-SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+  SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
 
-File file = new File(application.getRealPath("que" + sdf.format(Calendar.getInstance().getTime())));
-file.setWritable(true);
+  File file = new File(application.getRealPath("que" + sdf.format(Calendar.getInstance().getTime())));
+  file.setWritable(true);
 
-FileWriter objFr=new FileWriter(file);
-BufferedWriter objBr=new BufferedWriter(objFr);
-objBr.write(strTxt);
-objBr.write("\n");
-objBr.close();
+  FileWriter objFr=new FileWriter(file);
+  BufferedWriter objBr=new BufferedWriter(objFr);
+  objBr.write(strTxt);
+  objBr.write("\n");
+  objBr.close();
+}
  %>
     <br>
     <br>

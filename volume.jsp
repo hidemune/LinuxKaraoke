@@ -46,24 +46,12 @@
   }
 %>
 
-<a href="volume.jsp?cancel=1">
+<a href="kettei.jsp?cancel=1" target="_top">
 <button type="button" name="cancel" value="1">
 <br>
 <br>
 <font size="5" color="#333399">&nbsp;&nbsp;次の曲&nbsp;&nbsp;</font>
 </button>
-<%
-  request.setCharacterEncoding("UTF-8");
-
-  String cancel = request.getParameter("cancel");
-  //write
-  if (cancel != null) {
-    FileWriter objFw=new FileWriter(application.getRealPath("cancel"));
-    BufferedWriter objBw=new BufferedWriter(objFw);
-    objBw.write("1\n");
-    objBw.close();
-  }
-%>
 
 <br>
 <br>

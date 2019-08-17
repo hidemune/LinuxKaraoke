@@ -216,6 +216,7 @@ out.println("<table border='1' >");
         out.println("<td>アルバム</td>");
         out.println("<td>タイトル</td>");
         out.println("<td>予約</td>");
+        out.println("<td>Volume</td>");
         out.println("</tr>");
 while((line = objBr.readLine()) != null){
     StringTokenizer objTkn=new StringTokenizer(line,"\n");
@@ -238,7 +239,8 @@ while((line = objBr.readLine()) != null){
         out.println("<td>" + cols[1] + "</td>");
         out.println("<td>" + cols[2] + "</td>");
         out.println("<td>" + cols[3] + "</td>");
-        out.println("<td><form action='kettei.jsp' method='post'><input type='text' name='filename' value='" + cols[0].replace("\'","&#39") + "' hidden=true><input id='yoyaku' title='" + cols[0].replace("\'","&#39") + "' type='submit' value='予約'></td></form>");
+        out.println("<td><form action='kettei.jsp' method='post'><input type='text' name='filename' value='" + cols[0].replace("\'","&#39") + "' hidden=true><input id='yoyaku' title='" + cols[0].replace("\'","&#39") + "' type='submit' value='予約'><input type='hidden' name='volume' value='" + cols[4] + "'></td></form>");
+        out.println("<td>" + cols[4] + "</td>");
         out.println("</tr>");
       }
     }

@@ -18,6 +18,8 @@ do
   # QUE(Yoyaku) !
   lslst=(`ls /var/lib/tomcat8/webapps/ROOT/que* 2>/dev/null`)
   if [ ${#lslst[*]} -gt 0 ] ; then
+    # Volume 0%
+    amixer set Master 0%
     # QUE
     mode=2 #QUE:2
     qfiles=(`ls /var/lib/tomcat8/webapps/ROOT/que* -1 2>/dev/null`)
