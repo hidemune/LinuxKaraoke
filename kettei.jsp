@@ -23,30 +23,32 @@
   request.setCharacterEncoding("UTF-8");
 
   String strTxt = request.getParameter("filename");
-if (strTxt != null) {
-  //strTxt = "'" + strTxt + "'";
-  out.println("入力：" + strTxt + "：予約します");
-
   String volume = request.getParameter("volume");
-  if (volume != null) {
-    //write
-    FileWriter objFw=new FileWriter(application.getRealPath("volume"));
-    BufferedWriter objBw=new BufferedWriter(objFw);
-    objBw.write(volume);
-    objBw.close();
+  if (strTxt != null) {
+    //strTxt = "'" + strTxt + "'";
+    out.println("入力：" + strTxt + " / vol:" + volume + "：予約します");
+
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+
+    File file = new File(application.getRealPath("que" + sdf.format(Calendar.getInstance().getTime())));
+    file.setWritable(true);
+
+    FileWriter objFr=new FileWriter(file);
+    BufferedWriter objBr=new BufferedWriter(objFr);
+    objBr.write(strTxt);
+    objBr.write("\n");
+
+    if (volume != null) {
+      //write
+      objBr.write(volume);
+      objBr.write("\n");
+    } else {
+      objBr.write("70");
+      objBr.write("\n");
+    }
+
+    objBr.close();
   }
-
-  SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
-
-  File file = new File(application.getRealPath("que" + sdf.format(Calendar.getInstance().getTime())));
-  file.setWritable(true);
-
-  FileWriter objFr=new FileWriter(file);
-  BufferedWriter objBr=new BufferedWriter(objFr);
-  objBr.write(strTxt);
-  objBr.write("\n");
-  objBr.close();
-}
  %>
     <br>
     <br>

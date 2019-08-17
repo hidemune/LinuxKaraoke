@@ -36,6 +36,7 @@
           while((line = objBr.readLine()) != null){
             out.println((idx) + ":" + line.substring(line.lastIndexOf("/")+1,line.length()) + "<br>");
             idx++;
+            break;
           }
           objBr.close();
         }
@@ -239,7 +240,7 @@ while((line = objBr.readLine()) != null){
         out.println("<td>" + cols[1] + "</td>");
         out.println("<td>" + cols[2] + "</td>");
         out.println("<td>" + cols[3] + "</td>");
-        out.println("<td><form action='kettei.jsp' method='post'><input type='text' name='filename' value='" + cols[0].replace("\'","&#39") + "' hidden=true><input id='yoyaku' title='" + cols[0].replace("\'","&#39") + "' type='submit' value='予約'><input type='hidden' name='volume' value='" + cols[4] + "'></td></form>");
+        out.println("<td><form action='kettei.jsp' method='post'><input type='text' name='filename' value='" + cols[0].replace("\'","&#39") + "' hidden=true><input id='yoyaku' title='" + cols[0].replace("\'","&#39") + "' type='submit' value='予約'><input type='text' name='volume' value='" + cols[4] + "' hidden=true></td></form>");
         out.println("<td>" + cols[4] + "</td>");
         out.println("</tr>");
       }

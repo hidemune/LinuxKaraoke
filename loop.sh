@@ -23,7 +23,7 @@ do
     # QUE
     mode=2 #QUE:2
     qfiles=(`ls /var/lib/tomcat8/webapps/ROOT/que* -1 2>/dev/null`)
-    ./omx_player.sh "`cat ${qfiles[0]}`"
+    ./omx_player.sh "`sed -n 1P ${qfiles[0]}`" "`sed -n 2P ${qfiles[0]}`"
     echo Kettei : 「"`cat ${qfiles[0]}`"」 
     rm -f ${qfiles[0]}
   else
