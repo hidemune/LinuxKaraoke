@@ -19,6 +19,12 @@
     <form method="GET" action="input.jsp">
 <a href="input.jsp" target="_top">
 <%
+  //write
+  FileWriter objFwS=new FileWriter(application.getRealPath("start"));
+  BufferedWriter objBwS=new BufferedWriter(objFwS);
+  objBwS.write("1");
+  objBwS.close();
+
   int idx = 1;
   File dir = new File(application.getRealPath("."));
   File[] files = dir.listFiles();
