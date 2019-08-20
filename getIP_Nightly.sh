@@ -1,5 +1,6 @@
 #!/bin/bash
 rm -f /var/lib/tomcat8/webapps/ROOT/start
+cd /home/pi/git/LinuxKaraoke/
 
 str=`ifconfig | grep "inet 192"`
 ip=$(echo "$str" | awk '{print $2}')
