@@ -30,6 +30,7 @@ while [ 1 ]; do
     xte 'key N'
 
     sudo /home/pi/git/LinuxKaraoke/startNightly.sh
+    sudo shutdown now
     exit 0
   fi
   sleep 1
